@@ -28,17 +28,16 @@ module.exports = function (app) {
     var userInput = req.body;
     var userName = userInput.name;
     var userPhoto = userInput.photo;
-    var userScores = userInput.score;
+    var userScores = userInput.scores;
 
-    var totalDifference = 0;
+
 
     // loop through all the scores. 
     for (var i = 0; i < friends.length; i++) {
 
-
       // Calculate the difference of your score and the friends' scores. 
 
-      totalDifference = 0;
+      var totalDifference = 0;
 
       for (var j = 0; j < friends[i].scores[j]; j++) {
         totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
@@ -59,7 +58,7 @@ module.exports = function (app) {
 
       console.log(userInput);
 
-      friends.push(useInput);
+      friends.push(userInput);
 
       res.json(bestFriend);
     });
